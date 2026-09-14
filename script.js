@@ -302,7 +302,7 @@ document.querySelector('.share-button')?.setAttribute('aria-label', language ===
 document.querySelector('.share-copy')?.replaceChildren(document.createTextNode(language === 'en' ? 'Copy link' : language === 'es' ? 'Copiar enlace' : 'Copiar link'));
 document.querySelector('.share-native')?.replaceChildren(document.createTextNode(language === 'en' ? 'Share with another app' : language === 'es' ? 'Compartir con otra aplicación' : 'Compartilhar com outro aplicativo'));
 const feedbackLabels = language === 'en' ? ['Correction', 'Report item', 'Site feedback'] : language === 'es' ? ['Corrección', 'Informar elemento', 'Opinión sobre el sitio'] : ['Correção', 'Reportar item', 'Opinião sobre o site'];
-document.querySelectorAll('.feedback-panel button').forEach((button, index) => { button.textContent = feedbackLabels[index]; });
+document.querySelectorAll('.feedback-option').forEach((button, index) => { button.textContent = feedbackLabels[index]; });
 document.querySelector('.feedback-button')?.setAttribute('title', language === 'en' ? 'Send feedback' : language === 'es' ? 'Enviar comentarios' : 'Enviar feedback');
 document.querySelector('.feedback-button')?.setAttribute('aria-label', language === 'en' ? 'Send feedback' : language === 'es' ? 'Enviar comentarios' : 'Enviar feedback');
 translateStaticText(language);
@@ -314,12 +314,33 @@ languageOptions.forEach(option => option.addEventListener('click', () => applyLa
 
 applyLanguage(currentLanguage);
 
+const feedbackPageForm = document.querySelector('.feedback-page-form');
+if (feedbackPageForm) {
+const feedbackType = new URLSearchParams(window.location.search).get('type') || 'opinion';
+const feedbackSubjects = currentLanguage === 'en'
+? { correction: 'Correction', report: 'Item report', opinion: 'Site opinion' }
+: currentLanguage === 'es'
+? { correction: 'Corrección', report: 'Informe de elemento', opinion: 'Opinión sobre el sitio' }
+: { correction: 'Correção', report: 'Relato de item', opinion: 'Opinião sobre o site' };
+const selectedSubject = feedbackSubjects[feedbackType] || feedbackSubjects.opinion;
+const subjectInput = feedbackPageForm.querySelector('.feedback-subject');
+if (subjectInput) subjectInput.value = selectedSubject;
+feedbackPageForm.addEventListener('submit', event => {
+event.preventDefault();
+const formData = new FormData(feedbackPageForm);
+const body = `Nome: ${formData.get('name')}\nE-mail: ${formData.get('email')}\n\n${formData.get('message')}`;
+window.location.href = `mailto:contato@everythingmoe.com?subject=${encodeURIComponent(selectedSubject)}&body=${encodeURIComponent(body)}`;
+});
+}
+
 const shareButton = document.querySelector('.share-button');
 const sharePanel = document.querySelector('.share-panel');
 const shareCopy = document.querySelector('.share-copy');
 const shareNative = document.querySelector('.share-native');
 const feedbackButton = document.querySelector('.feedback-button');
 const feedbackPanel = document.querySelector('.feedback-panel');
+const feedbackOptionButtons = document.querySelectorAll('.feedback-option');
+const feedbackEmail = 'contato@everythingmoe.com';
 
 function closeSharePanel() {
 if (!shareButton || !sharePanel) return;
@@ -333,12 +354,55 @@ feedbackButton.setAttribute('aria-expanded', 'false');
 feedbackPanel.hidden = true;
 }
 
+function feedbackFormCopy() {
+return currentLanguage === 'en'
+? { recipient: 'Recipient', name: 'Name', email: 'Your e-mail', message: 'Message', send: 'Send', back: 'Back', subject: 'Feedback' }
+: currentLanguage === 'es'
+? { recipient: 'Destinatario', name: 'Nombre', email: 'Tu correo electrónico', message: 'Mensaje', send: 'Enviar', back: 'Volver', subject: 'Comentarios' }
+: { recipient: 'Destinatário', name: 'Nome', email: 'Seu e-mail', message: 'Mensagem', send: 'Enviar', back: 'Voltar', subject: 'Feedback' };
+}
+
+function showFeedbackForm(type) {
+if (!feedbackPanel) return;
+const labels = feedbackFormCopy();
+const subjects = currentLanguage === 'en'
+? { correction: 'Correction', report: 'Item report', opinion: 'Site opinion' }
+: currentLanguage === 'es'
+? { correction: 'Corrección', report: 'Informe de elemento', opinion: 'Opinión sobre el sitio' }
+: { correction: 'Correção', report: 'Relato de item', opinion: 'Opinião sobre o site' };
+feedbackPanel.innerHTML = `<form class="feedback-form">
+<strong>${subjects[type]}</strong>
+<div class="feedback-recipient">${labels.recipient}: ${feedbackEmail}</div>
+<label>${labels.name}<input name="name" type="text" maxlength="80" required></label>
+<label>${labels.email}<input name="email" type="email" maxlength="120" required></label>
+<label>${labels.message}<textarea name="message" maxlength="1000" required></textarea></label>
+<div class="feedback-form-actions"><button class="feedback-back" type="button">${labels.back}</button><button type="submit">${labels.send}</button></div>
+</form>`;
+const form = feedbackPanel.querySelector('.feedback-form');
+form.addEventListener('submit', event => {
+event.preventDefault();
+const formData = new FormData(form);
+const subject = subjects[type];
+const body = `${labels.name}: ${formData.get('name')}\n${labels.email}: ${formData.get('email')}\n\n${formData.get('message')}`;
+window.location.href = `mailto:${feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+feedbackPanel.querySelector('.feedback-back').addEventListener('click', () => {
+feedbackPanel.innerHTML = '<button class="feedback-option" type="button" data-feedback="correction"></button><button class="feedback-option" type="button" data-feedback="report"></button><button class="feedback-option" type="button" data-feedback="opinion"></button>';
+const updatedLabels = currentLanguage === 'en' ? ['Correction', 'Report item', 'Site feedback'] : currentLanguage === 'es' ? ['Corrección', 'Informar elemento', 'Opinión sobre el sitio'] : ['Correção', 'Reportar item', 'Opinião sobre o site'];
+feedbackPanel.querySelectorAll('.feedback-option').forEach((button, index) => { button.textContent = updatedLabels[index]; button.addEventListener('click', () => showFeedbackForm(button.dataset.feedback)); });
+});
+}
+
 if (feedbackButton && feedbackPanel) {
 feedbackButton.addEventListener('click', () => {
 const expanded = feedbackButton.getAttribute('aria-expanded') === 'true';
 feedbackButton.setAttribute('aria-expanded', !expanded);
 feedbackPanel.hidden = expanded;
 });
+
+feedbackOptionButtons.forEach(button => button.addEventListener('click', () => {
+window.location.href = `feedback.html?type=${encodeURIComponent(button.dataset.feedback)}`;
+}));
 
 document.addEventListener('click', event => {
 if (!event.target.closest('.feedback-menu')) closeFeedbackPanel();

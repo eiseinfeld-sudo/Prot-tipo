@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar feedback - TudoMoe</title>
+    <link rel="icon" type="image/x-icon" href="Imagens/watermarked_img_15993395381853042942.jpg">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="logo">
+                <img src="Imagens/icon3.jpeg" alt="logo">
+                <span class="logo-text">TudoMoe</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container feedback-page">
+        <section class="content-section feedback-page-card">
+            <a class="feedback-back-link" href="index.html">← Voltar para o site</a>
+            <h1 class="feedback-page-title">Enviar feedback</h1>
+            <p class="feedback-page-intro">Envie sua mensagem diretamente para a equipe do site.</p>
+            <form class="feedback-page-form">
+                <p class="feedback-page-recipient">Destinatário: contato@everythingmoe.com</p>
+                <label>Assunto<input class="feedback-subject" type="text" readonly></label>
+                <label>Nome<input name="name" type="text" maxlength="80" required></label>
+                <label>Seu e-mail<input name="email" type="email" maxlength="120" required></label>
+                <label>Mensagem<textarea name="message" rows="7" maxlength="1000" required></textarea></label>
+                <button class="feedback-page-submit" type="submit">Abrir aplicativo de e-mail</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

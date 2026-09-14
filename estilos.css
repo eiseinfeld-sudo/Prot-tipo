@@ -271,6 +271,141 @@ header {
     color: #fff;
 }
 
+.feedback-form{
+    display: grid;
+    gap: .5rem;
+}
+
+.feedback-recipient{
+    padding: .35rem .5rem;
+    border-bottom: 1px solid #2a3038;
+    color: #7a8088;
+    font-size: .75rem;
+}
+
+.feedback-form label{
+    display: grid;
+    gap: .2rem;
+    color: #a0a0a0;
+    font-size: .78rem;
+}
+
+.feedback-form input,
+.feedback-form textarea{
+    width: 100%;
+    padding: .4rem .5rem;
+    border: 1px solid #3a4048;
+    border-radius: 3px;
+    background: #252b33;
+    color: #e0e0e0;
+    font: inherit;
+}
+
+.feedback-form textarea{
+    min-height: 74px;
+    resize: vertical;
+}
+
+.feedback-form-actions{
+    display: flex;
+    gap: .35rem;
+}
+
+.feedback-form-actions button{
+    flex: 1;
+    padding: .4rem;
+    border: 1px solid #3a4048;
+    background: #252b33;
+    text-align: center;
+}
+
+.feedback-page{
+    display: block;
+    flex: 1;
+    max-width: 900px;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.feedback-page-card{
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.feedback-back-link{
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.feedback-back-link:hover{
+    color: #ff6b9d;
+}
+
+.feedback-page-title{
+    margin-top: 1.2rem;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.feedback-page-intro{
+    margin-top: .6rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+.feedback-page-form{
+    display: grid;
+    gap: .8rem;
+    margin-top: 1.5rem;
+}
+
+.feedback-page-form label{
+    display: grid;
+    gap: .3rem;
+    color: #a0a0a0;
+    font-size: .9rem;
+}
+
+.feedback-page-form input,
+.feedback-page-form textarea{
+    width: 100%;
+    padding: .6rem .7rem;
+    border: 1px solid #3a4048;
+    border-radius: 4px;
+    background: #252b33;
+    color: #e0e0e0;
+    font: inherit;
+}
+
+.feedback-page-form textarea{
+    resize: vertical;
+}
+
+.feedback-page-recipient{
+    padding: .65rem .75rem;
+    border: 1px solid #2a3038;
+    border-radius: 4px;
+    color: #a0a0a0;
+    font-size: .9rem;
+}
+
+.feedback-page-submit{
+    width: fit-content;
+    padding: .6rem .9rem;
+    border: 1px solid #3a4048;
+    border-radius: 4px;
+    background: #1a1f26;
+    color: #e0e0e0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.feedback-page-submit:hover{
+    border-color: #ff6b9d;
+    color: #ff6b9d;
+}
+
 .settings-panel{
     position: absolute;
     top: calc(100% + .7rem);
