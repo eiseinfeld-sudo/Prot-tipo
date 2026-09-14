@@ -86,6 +86,93 @@ sidebarHeadings: ['Índice', 'Categorías', 'Páginas']
 }
 };
 
+const interfaceTranslations = {
+en: {
+'Mostrar categorias': 'Show categories', 'Ocultar categorias': 'Hide categories', 'Anime Streaming': 'Anime Streaming', 'Manga Reading': 'Manga Reading', 'Dramas Asiáticos': 'Asian Dramas', 'Novel Reading': 'Novel Reading', 'Plataformas e Recursos': 'Platforms and Resources', 'Animes': 'Anime', 'Mangás': 'Manga', 'Música': 'Music', 'Ferramentas': 'Tools', 'Calendário': 'Calendar', 'Banco de Dados': 'Database', 'Ocidental': 'Western', 'Tendências': 'Trending', 'Guias': 'Guides', 'Fóruns': 'Forums', 'Páginas': 'Pages', 'Categorias': 'Categories', 'Índice': 'Index', 'Sobre & Info': 'About & Info', 'Sobre': 'About', 'Contato': 'Contact', 'Sugestões': 'Suggestions', 'Reportar Erro': 'Report an Error', 'Categorias Principais': 'Main Categories', 'Links Úticos': 'Useful Links', 'Calendário de Lançamentos': 'Release Calendar', 'Disclaimer': 'Disclaimer', 'Changelog': 'Changelog', 'Comunidade': 'Community', 'Prós': 'Pros', 'Contras': 'Cons', 'Acessar site externo ↗': 'Visit external site ↗', 'Fixar': 'Pin', 'Fixado': 'Pinned', 'Comentários': 'Comments', 'Expandir detalhes⌄': 'Expand details⌄', 'Recolher detalhes⌃': 'Collapse details⌃', 'Nenhum comentário ainda.': 'No comments yet.', 'Voltar ao topo': 'Back to top', 'Sobre TudoMoe': 'About TudoMoe', 'O que fazemos': 'What we do', 'Como avaliamos': 'How we evaluate', 'Nosso objetivo': 'Our goal', 'Projeto Comunitário': 'Community Project', 'Cultura Otaku': 'Otaku Culture', 'Aviso Legal': 'Legal Notice', 'Escolha': 'Choose', 'Nome': 'Name', 'Avaliação': 'Rating', 'Comentário': 'Comment', 'Enviar avaliação': 'Submit review', 'Seu nome': 'Your name', 'Conte sua experiência com este site': 'Tell us about your experience with this site', 'Email': 'Email', 'Twitter': 'X', 'Idioma': 'Language', 'Notificações': 'Notifications', 'Main Index': 'Main Index', 'Graveyard': 'Graveyard', 'Updates': 'Updates', 'Down Detector': 'Down Detector', 'Downloads': 'Downloads', 'Light Novel': 'Light Novel', 'Games': 'Games', 'Apps': 'Apps', 'Drama': 'Drama', 'Quiz': 'Quiz', 'Imageboards': 'Imageboards', 'VTuber': 'VTuber', 'Gacha': 'Gacha', 'Cosplay': 'Cosplay', 'AMV': 'AMV', 'Donghua': 'Donghua', 'Schedule': 'Schedule', 'Trends': 'Trends', 'Tools': 'Tools', 'Guides': 'Guides', 'Forums': 'Forums', 'Anime': 'Anime', 'Manga': 'Manga', 'Revisões': 'Reviews', 'Privacidade': 'Privacy', 'Termos': 'Terms', 'Catálogo amplo': 'Wide catalog', 'Navegação simples.': 'Simple navigation.', 'Interface Moderna': 'Modern interface', 'Interface moderna': 'Modern interface', 'Disponibilidade pode variar por região': 'Availability may vary by region', 'Muitos ADS': 'Many ads', 'Fácil de usar': 'Easy to use', 'Galeria considerável': 'Considerable gallery', 'Poucas opções avançadas': 'Few advanced options', 'Watermark': 'Watermark', 'Boa organização das séries': 'Well-organized series', 'Server confiável': 'Reliable server', 'Updates constantes': 'Frequent updates', 'Catálogo mediano': 'Average catalog', 'Atualizações frequentes.': 'Frequent updates.', 'Multíplas fontes e idiomas': 'Multiple sources and languages', 'Catálogo extenso': 'Extensive catalog', 'Busca rápida por conteúdo': 'Fast content search', 'Servers variados': 'Multiple servers', 'Filtros ainda limitados': 'Limited filters', 'Layout direto e acessível.': 'Clear and accessible layout.', 'Recursos sociais reduzidos.': 'Reduced social features', 'Novidades organizadas por data': 'Updates organized by date', 'Calendário simples de consultar.': 'Easy-to-check calendar', 'Nem todos os horários são confirmados.': 'Not all times are confirmed.', 'Lista atualizada regularmente.': 'Regularly updated list.', 'Detalhes extras ainda limitados.': 'Extra details are limited.', 'Visualização rápida das novidades.': 'Quick view of updates', 'Alguns dados podem estar pendentes.': 'Some data may be pending.', 'Fácil de acompanhar.': 'Easy to follow.', 'Sem histórico detalhado.': 'No detailed history.', 'Formato claro e objetivo.': 'Clear and objective format.', 'Pode exigir conferência manual.': 'May require manual checking.'
+},
+es: {
+'Mostrar categorias': 'Mostrar categorías', 'Ocultar categorias': 'Ocultar categorías', 'Anime Streaming': 'Anime Streaming', 'Manga Reading': 'Lectura de manga', 'Dramas Asiáticos': 'Dramas asiáticos', 'Novel Reading': 'Lectura de novelas', 'Plataformas e Recursos': 'Plataformas y recursos', 'Animes': 'Anime', 'Mangás': 'Mangas', 'Música': 'Música', 'Ferramentas': 'Herramientas', 'Calendário': 'Calendario', 'Banco de Dados': 'Base de datos', 'Ocidental': 'Occidental', 'Tendências': 'Tendencias', 'Guias': 'Guías', 'Fóruns': 'Foros', 'Páginas': 'Páginas', 'Categorias': 'Categorías', 'Índice': 'Índice', 'Sobre & Info': 'Sobre e información', 'Sobre': 'Sobre', 'Contato': 'Contacto', 'Sugestões': 'Sugerencias', 'Reportar Erro': 'Informar un error', 'Categorias Principais': 'Categorías principales', 'Links Úticos': 'Enlaces útiles', 'Calendário de Lançamentos': 'Calendario de lanzamientos', 'Disclaimer': 'Aviso legal', 'Changelog': 'Registro de cambios', 'Comunidade': 'Comunidad', 'Prós': 'Ventajas', 'Contras': 'Desventajas', 'Acessar site externo ↗': 'Visitar sitio externo ↗', 'Fixar': 'Fijar', 'Fixado': 'Fijado', 'Comentários': 'Comentarios', 'Expandir detalhes⌄': 'Expandir detalles⌄', 'Recolher detalhes⌃': 'Contraer detalles⌃', 'Nenhum comentário ainda.': 'Aún no hay comentarios.', 'Voltar ao topo': 'Volver arriba', 'Sobre TudoMoe': 'Sobre TudoMoe', 'O que fazemos': 'Qué hacemos', 'Como avaliamos': 'Cómo evaluamos', 'Nosso objetivo': 'Nuestro objetivo', 'Projeto Comunitário': 'Proyecto comunitario', 'Cultura Otaku': 'Cultura otaku', 'Aviso Legal': 'Aviso legal', 'Escolha': 'Elegir', 'Nome': 'Nombre', 'Avaliação': 'Valoración', 'Comentário': 'Comentario', 'Enviar avaliação': 'Enviar valoración', 'Seu nome': 'Tu nombre', 'Conte sua experiência com este site': 'Cuéntanos tu experiencia con este sitio', 'Email': 'Correo electrónico', 'Twitter': 'X', 'Idioma': 'Idioma', 'Notificações': 'Notificaciones', 'Main Index': 'Índice principal', 'Graveyard': 'Archivo', 'Updates': 'Actualizaciones', 'Down Detector': 'Detector de caídas', 'Downloads': 'Descargas', 'Light Novel': 'Novela ligera', 'Games': 'Juegos', 'Apps': 'Aplicaciones', 'Drama': 'Drama', 'Quiz': 'Cuestionario', 'Imageboards': 'Imageboards', 'VTuber': 'VTuber', 'Gacha': 'Gacha', 'Cosplay': 'Cosplay', 'AMV': 'AMV', 'Donghua': 'Donghua', 'Schedule': 'Calendario', 'Trends': 'Tendencias', 'Tools': 'Herramientas', 'Guides': 'Guías', 'Forums': 'Foros', 'Anime': 'Anime', 'Manga': 'Manga', 'Revisões': 'Reseñas', 'Privacidade': 'Privacidad', 'Termos': 'Términos', 'Catálogo amplo': 'Catálogo amplio', 'Navegação simples.': 'Navegación sencilla.', 'Interface Moderna': 'Interfaz moderna', 'Interface moderna': 'Interfaz moderna', 'Disponibilidade pode variar por região': 'La disponibilidad puede variar según la región', 'Muitos ADS': 'Muchos anuncios', 'Fácil de usar': 'Fácil de usar', 'Galeria considerável': 'Galería considerable', 'Poucas opções avançadas': 'Pocas opciones avanzadas', 'Boa organização das séries': 'Series bien organizadas', 'Server confiável': 'Servidor confiable', 'Updates constantes': 'Actualizaciones constantes', 'Catálogo mediano': 'Catálogo mediano', 'Atualizações frequentes.': 'Actualizaciones frecuentes.', 'Multíplas fontes e idiomas': 'Múltiples fuentes e idiomas', 'Catálogo extenso': 'Catálogo extenso', 'Busca rápida por conteúdo': 'Búsqueda rápida de contenido', 'Servers variados': 'Varios servidores', 'Filtros ainda limitados': 'Filtros aún limitados', 'Layout direto e acessível.': 'Diseño claro y accesible.', 'Recursos sociais reduzidos.': 'Recursos sociales reducidos', 'Novidades organizadas por data': 'Novedades organizadas por fecha', 'Calendário simples de consultar.': 'Calendario fácil de consultar', 'Nem todos os horários são confirmados.': 'No todos los horarios están confirmados.', 'Lista atualizada regularmente.': 'Lista actualizada regularmente.', 'Detalhes extras ainda limitados.': 'Detalles adicionales limitados.', 'Visualização rápida das novidades.': 'Vista rápida de las novedades', 'Alguns dados podem estar pendentes.': 'Algunos datos pueden estar pendientes.', 'Fácil de acompanhar.': 'Fácil de seguir.', 'Sem histórico detalhado.': 'Sin historial detallado.', 'Formato claro e objetivo.': 'Formato claro y objetivo.', 'Pode exigir conferência manual.': 'Puede requerir comprobación manual.'
+}
+};
+
+const originalTextNodes = new WeakMap();
+
+function translateStaticText(language) {
+const dictionary = interfaceTranslations[language];
+const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+const nodes = [];
+while (walker.nextNode()) nodes.push(walker.currentNode);
+nodes.forEach(node => {
+const original = originalTextNodes.get(node) || node.textContent;
+originalTextNodes.set(node, original);
+const trimmed = original.trim();
+if (!trimmed) return;
+if (!dictionary) {
+node.textContent = original;
+return;
+}
+const withoutPrefix = trimmed.replace(/^[^A-Za-zÀ-ÿ]+/, '');
+const translated = dictionary[trimmed] || dictionary[withoutPrefix];
+if (translated) node.textContent = original.replace(trimmed, translated);
+});
+}
+
+function translateCommentForms(language) {
+const labels = language === 'en'
+? { name: 'Name', rating: 'Rating', comment: 'Comment', choose: 'Choose', submit: 'Submit review', namePlaceholder: 'Your name', textPlaceholder: 'Tell us about your experience with this site', stars: 'stars', star: 'star' }
+: language === 'es'
+? { name: 'Nombre', rating: 'Valoración', comment: 'Comentario', choose: 'Elegir', submit: 'Enviar valoración', namePlaceholder: 'Tu nombre', textPlaceholder: 'Cuéntanos tu experiencia con este sitio', stars: 'estrellas', star: 'estrella' }
+: { name: 'Nome', rating: 'Avaliação', comment: 'Comentário', choose: 'Escolha', submit: 'Enviar avaliação', namePlaceholder: 'Seu nome', textPlaceholder: 'Conte sua experiência com este site', stars: 'estrelas', star: 'estrela' };
+document.querySelectorAll('.comment-form').forEach(form => {
+const labelsByField = { name: labels.name, rating: labels.rating, text: labels.comment };
+Object.entries(labelsByField).forEach(([field, value]) => {
+const label = form.querySelector(`[name="${field}"]`)?.closest('label');
+if (label?.firstChild) label.firstChild.textContent = value;
+});
+const nameInput = form.querySelector('[name="name"]');
+const ratingSelect = form.querySelector('[name="rating"]');
+const textInput = form.querySelector('[name="text"]');
+if (nameInput) nameInput.placeholder = labels.namePlaceholder;
+if (textInput) textInput.placeholder = labels.textPlaceholder;
+if (ratingSelect) {
+ratingSelect.options[0].textContent = labels.choose;
+for (let index = 1; index < ratingSelect.options.length; index += 1) ratingSelect.options[index].textContent = `${index} ${index === 1 ? labels.star : labels.stars}`;
+}
+const submit = form.querySelector('.comment-submit');
+if (submit) submit.textContent = labels.submit;
+});
+}
+
+function translateAboutPage(language) {
+const aboutText = {
+pt: {
+intro: 'Listamos e analisamos sites e aplicativos relacionados à cultura de anime e mangá (otaku); cada análise é elaborada manualmente com base em nossos próprios testes (sem automação). Nosso objetivo é oferecer uma lista atualizada e confiável dos melhores sites de anime e mangá para o público de língua inglesa.',
+details: ['Reunimos recursos de anime, mangá, jogos, música e outras áreas da cultura otaku em um só lugar.', 'Testamos os serviços manualmente e destacamos seus pontos fortes, limitações e formas de acesso.', 'Facilitamos a descoberta de sites úteis com informações claras, organizadas e atualizadas.'],
+sections: ['O EverythingMoe é um projeto comunitário que não visa ao lucro. Nossas avaliações ajudam as pessoas a encontrar o que procuram, sem beneficiar os operadores dos sites. Nossa comunidade reúne informações, notícias, atualizações e discussões sobre os serviços avaliados.', 'O termo pode ser interpretado de várias maneiras. Aqui, ele representa subculturas baseadas em interesses relacionados ao entretenimento e à mídia do Leste Asiático, aproximando-se da cultura ACG.', 'As avaliações refletem opiniões subjetivas e não são julgamentos definitivos nem endossos. As informações vêm de testes pessoais e da comunidade, podendo conter erros ou ficar desatualizadas. Tenha cautela ao acessar sites de terceiros e anúncios.'],
+contact: 'Se você não prefere as redes sociais, também pode usar nosso formulário de contato.'
+},
+en: {
+intro: 'We list and review websites and apps related to anime and manga culture (otaku). Each review is written manually based on our own tests. Our goal is to provide an updated and reliable list of the best anime and manga sites for English-speaking users.',
+details: ['We bring together resources for anime, manga, games, music and other areas of otaku culture in one place.', 'We test services manually and highlight their strengths, limitations and access options.', 'We make it easier to discover useful sites through clear, organized and updated information.'],
+sections: ['EverythingMoe is a non-profit community project. Our reviews help people find what they are looking for without benefiting site operators. The community gathers information, news, updates and discussions about the services we review.', 'The term can be interpreted in many ways. Here, it refers to subcultures based on interests related to East Asian entertainment and media, closely aligned with ACG culture.', 'Reviews reflect subjective opinions and are not definitive judgments or endorsements. Information comes from personal testing and the community and may contain errors or become outdated. Be careful when accessing third-party sites and advertisements.'],
+contact: 'If you prefer not to use social networks, you can also use our contact form.'
+},
+es: {
+intro: 'Listamos y analizamos sitios y aplicaciones relacionados con la cultura del anime y el manga (otaku). Cada análisis se realiza manualmente a partir de nuestras propias pruebas. Nuestro objetivo es ofrecer una lista actualizada y confiable de los mejores sitios de anime y manga.',
+details: ['Reunimos recursos de anime, manga, juegos, música y otras áreas de la cultura otaku en un solo lugar.', 'Probamos los servicios manualmente y destacamos sus puntos fuertes, limitaciones y formas de acceso.', 'Facilitamos el descubrimiento de sitios útiles con información clara, organizada y actualizada.'],
+sections: ['EverythingMoe es un proyecto comunitario sin fines de lucro. Nuestras reseñas ayudan a las personas a encontrar lo que buscan sin beneficiar a los operadores de los sitios. La comunidad reúne información, noticias, actualizaciones y debates sobre los servicios evaluados.', 'El término puede interpretarse de varias maneras. Aquí se refiere a subculturas basadas en intereses relacionados con el entretenimiento y los medios de Asia Oriental, cercanos a la cultura ACG.', 'Las reseñas reflejan opiniones subjetivas y no son juicios definitivos ni recomendaciones. La información proviene de pruebas personales y de la comunidad, por lo que puede contener errores o quedar desactualizada. Ten cuidado al acceder a sitios y anuncios de terceros.'],
+contact: 'Si prefieres no utilizar redes sociales, también puedes usar nuestro formulario de contacto.'
+}
+}[language];
+if (!aboutText) return;
+const intro = document.querySelector('.about-section > p');
+if (intro) intro.textContent = aboutText.intro;
+document.querySelectorAll('.about-details p').forEach((paragraph, index) => { paragraph.textContent = aboutText.details[index] || paragraph.textContent; });
+document.querySelectorAll('.about-section > h2 + p').forEach((paragraph, index) => { paragraph.textContent = aboutText.sections[index] || paragraph.textContent; });
+const contactNote = [...document.querySelectorAll('.about-section li')].find(item => item.textContent.includes('formulário') || item.textContent.includes('form')); 
+if (contactNote) contactNote.textContent = aboutText.contact;
+}
+
 let currentLanguage = localStorage.getItem('tudomoe-language') || 'pt';
 
 function applyLanguage(language) {
@@ -95,11 +182,13 @@ localStorage.setItem('tudomoe-language', language);
 document.documentElement.lang = language === 'pt' ? 'pt-BR' : language;
 document.querySelector('.search-box')?.setAttribute('placeholder', text.search);
 document.querySelector('.search-box')?.setAttribute('aria-label', text.searchLabel);
-document.querySelector('.settings-panel strong').textContent = text.settings;
-document.querySelector('.language-label').textContent = text.language;
-document.querySelector('.settings-notifications').textContent = text.notifications;
-document.querySelector('.hero-title').textContent = text.heroTitle;
-document.querySelector('.hero-subtitle').textContent = text.heroSubtitle;
+document.querySelector('.settings-toggle')?.setAttribute('title', text.settings);
+document.querySelector('.settings-toggle')?.setAttribute('aria-label', text.settings);
+document.querySelector('.settings-panel strong')?.replaceChildren(document.createTextNode(text.settings));
+document.querySelector('.language-label')?.replaceChildren(document.createTextNode(text.language));
+document.querySelector('.settings-notifications')?.replaceChildren(document.createTextNode(text.notifications));
+document.querySelector('.hero-title')?.replaceChildren(document.createTextNode(text.heroTitle));
+document.querySelector('.hero-subtitle')?.replaceChildren(document.createTextNode(text.heroSubtitle));
 document.querySelector('.categories-toggle span')?.replaceChildren(document.createTextNode(categoriesMenu?.classList.contains('expanded') ? text.hideCategories : text.showCategories));
 document.querySelectorAll('.content-title').forEach((title, index) => { title.textContent = text.sections[index] || title.textContent; });
 document.querySelector('.media-title')?.replaceChildren(document.createTextNode(text.media));
@@ -109,6 +198,9 @@ document.querySelectorAll('.pin-toggle').forEach(button => { button.textContent 
 document.querySelectorAll('.comments-toggle').forEach(button => { button.textContent = text.comments; });
 document.querySelectorAll('.item-external-link').forEach(link => { link.textContent = text.external; });
 document.querySelector('a[onclick*="scrollTo"]')?.replaceChildren(document.createTextNode(text.top));
+translateStaticText(language);
+translateCommentForms(language);
+translateAboutPage(language);
 }
 
 languageOptions.forEach(option => option.addEventListener('click', () => applyLanguage(option.dataset.language)));
@@ -278,6 +370,8 @@ renderComments(card);
 });
 renderComments(card);
 });
+
+applyLanguage(currentLanguage);
 
 const menuToggle = document.querySelector('.menu-toggle');
 
