@@ -198,6 +198,10 @@ document.querySelectorAll('.pin-toggle').forEach(button => { button.textContent 
 document.querySelectorAll('.comments-toggle').forEach(button => { button.textContent = text.comments; });
 document.querySelectorAll('.item-external-link').forEach(link => { link.textContent = text.external; });
 document.querySelector('a[onclick*="scrollTo"]')?.replaceChildren(document.createTextNode(text.top));
+document.querySelector('.share-button')?.setAttribute('title', language === 'en' ? 'Share' : language === 'es' ? 'Compartir' : 'Compartilhar');
+document.querySelector('.share-button')?.setAttribute('aria-label', language === 'en' ? 'Share' : language === 'es' ? 'Compartir' : 'Compartilhar');
+document.querySelector('.share-copy')?.replaceChildren(document.createTextNode(language === 'en' ? 'Copy link' : language === 'es' ? 'Copiar enlace' : 'Copiar link'));
+document.querySelector('.share-native')?.replaceChildren(document.createTextNode(language === 'en' ? 'Share with another app' : language === 'es' ? 'Compartir con otra aplicación' : 'Compartilhar com outro aplicativo'));
 translateStaticText(language);
 translateCommentForms(language);
 translateAboutPage(language);
@@ -206,6 +210,64 @@ translateAboutPage(language);
 languageOptions.forEach(option => option.addEventListener('click', () => applyLanguage(option.dataset.language)));
 
 applyLanguage(currentLanguage);
+
+const shareButton = document.querySelector('.share-button');
+const sharePanel = document.querySelector('.share-panel');
+const shareCopy = document.querySelector('.share-copy');
+const shareNative = document.querySelector('.share-native');
+
+function closeSharePanel() {
+if (!shareButton || !sharePanel) return;
+shareButton.setAttribute('aria-expanded', 'false');
+sharePanel.hidden = true;
+}
+
+async function copyCurrentLink() {
+if (navigator.clipboard) {
+await navigator.clipboard.writeText(window.location.href);
+return;
+}
+const fallback = document.createElement('textarea');
+fallback.value = window.location.href;
+fallback.setAttribute('readonly', '');
+fallback.style.position = 'fixed';
+fallback.style.opacity = '0';
+document.body.append(fallback);
+fallback.select();
+document.execCommand('copy');
+fallback.remove();
+}
+
+if (shareButton && sharePanel) {
+shareButton.addEventListener('click', () => {
+const expanded = shareButton.getAttribute('aria-expanded') === 'true';
+shareButton.setAttribute('aria-expanded', !expanded);
+sharePanel.hidden = expanded;
+});
+
+shareCopy?.addEventListener('click', async () => {
+await copyCurrentLink();
+closeSharePanel();
+const originalTitle = shareButton.title;
+shareButton.title = currentLanguage === 'en' ? 'Link copied!' : currentLanguage === 'es' ? '¡Enlace copiado!' : 'Link copiado!';
+setTimeout(() => { shareButton.title = originalTitle; }, 1800);
+});
+
+shareNative?.addEventListener('click', async () => {
+const shareData = { title: document.title, text: document.querySelector('.hero-title')?.textContent || document.title, url: window.location.href };
+try {
+if (navigator.share) await navigator.share(shareData);
+else await copyCurrentLink();
+} catch (error) {
+if (error.name !== 'AbortError') console.error('Não foi possível compartilhar o link.', error);
+}
+closeSharePanel();
+});
+
+document.addEventListener('click', event => {
+if (!event.target.closest('.share-menu')) closeSharePanel();
+});
+}
 
 if (settingsToggle && settingsPanel) {
 settingsToggle.addEventListener('click', () => {

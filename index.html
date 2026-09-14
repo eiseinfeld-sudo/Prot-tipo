@@ -21,6 +21,13 @@
             <input class="search-box" type="search" placeholder="Pesquisar..." aria-label="Pesquisar sites">
             <span class="search-status" aria-live="polite" hidden></span>
             <div class="header-icons">
+                <div class="share-menu">
+                    <button class="icon-btn share-button" type="button" title="Compartilhar" aria-label="Compartilhar" aria-expanded="false" aria-controls="share-panel">⤴</button>
+                    <div class="share-panel" id="share-panel" hidden>
+                        <button class="share-copy" type="button">Copiar link</button>
+                        <button class="share-native" type="button">Compartilhar com outro aplicativo</button>
+                    </div>
+                </div>
                 <div class="settings-menu">
                     <button class="icon-btn settings-toggle" type="button" title="Configurações" aria-label="Configurações" aria-expanded="false" aria-controls="settings-panel">⚙</button>
                     <div class="settings-panel" id="settings-panel" hidden>
@@ -305,7 +312,7 @@
             <div class="sidebar-section">
                 <h4 data-icon="▱">Páginas</h4>
                 <ul>
-                    <li data-icon="↗"><a href="#">Kuroiru</a></li>
+                    <li><img src="Imagens/download (1).png"><a href="https://kuroiru.co/" target="_blank" rel="noopener noreferrer">Kuroiru</a></li>
                     <li data-icon="▤"><a href="artigos.html">Artigos</a></li>
                     <li data-icon="ⓘ"><a href="sobre&info.html">Sobre & Info</a></li>
                 </ul>
