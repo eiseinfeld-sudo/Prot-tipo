@@ -18,8 +18,11 @@
             </a>
         </div>
         <div class="header-right">
-            <input class="search-box" type="search" placeholder="Pesquisar..." aria-label="Pesquisar sites">
-            <span class="search-status" aria-live="polite" hidden></span>
+            <div class="search-container">
+                <input class="search-box" type="search" placeholder="Pesquisar..." aria-label="Pesquisar sites">
+                <span class="search-status" aria-live="polite" hidden></span>
+                <div class="search-suggestions" role="listbox" hidden></div>
+            </div>
             <div class="header-icons">
                 <button class="icon-btn" type="button" title="Favoritos" aria-label="Favoritos">♡</button>
                 <div class="share-menu">
@@ -27,6 +30,14 @@
                     <div class="share-panel" id="share-panel" hidden>
                         <button class="share-copy" type="button">Copiar link</button>
                         <button class="share-native" type="button">Compartilhar com outro aplicativo</button>
+                    </div>
+                </div>
+                <div class="feedback-menu">
+                    <button class="icon-btn feedback-button" type="button" title="Enviar feedback" aria-label="Enviar feedback" aria-expanded="false" aria-controls="feedback-panel">✎</button>
+                    <div class="feedback-panel" id="feedback-panel" hidden>
+                        <button type="button">Correção</button>
+                        <button type="button">Reportar item</button>
+                        <button type="button">Opinião sobre o site</button>
                     </div>
                 </div>
                 <div class="settings-menu">

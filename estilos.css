@@ -90,13 +90,18 @@ header {
     max-width: 100%;
 }
 
+.search-container{
+    position: relative;
+    width: min(280px, 100%);
+}
+
 .search-box{
     background:#2a3038;
     border: 1px solid #3a4048;
     padding: .55rem 1rem;
     border-radius: 4px;
     color: #e0e0e0;
-    width: min(180px, 100%);
+    width: 100%;
     min-width: 0;
     max-width: 100%;
     font-size: 1rem;
@@ -106,6 +111,66 @@ header {
     color: #a0a0a0;
     font-size: .85rem;
     white-space: nowrap;
+}
+
+.search-suggestions{
+    position: absolute;
+    top: calc(100% + .35rem);
+    left: 0;
+    right: 0;
+    z-index: 250;
+    display: grid;
+    gap: .2rem;
+    padding: .4rem;
+    background: #1a1f26;
+    border: 1px solid #3a4048;
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+
+.search-suggestions[hidden]{
+    display: none;
+}
+
+.search-suggestion{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    width: 100%;
+    padding: .5rem .6rem;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: #e0e0e0;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.search-suggestion-icon{
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    object-fit: contain;
+    background: #252b33;
+}
+
+.search-suggestion-text{
+    display: grid;
+    min-width: 0;
+    gap: .15rem;
+}
+
+.search-suggestion small{
+    color: #7a8088;
+    font-size: .75rem;
+}
+
+.search-suggestion:hover,
+.search-suggestion:focus-visible{
+    background: rgba(255,107,157,.08);
+    outline: 0;
 }
 
 
@@ -119,6 +184,10 @@ header {
 }
 
 .share-menu{
+    position: relative;
+}
+
+.feedback-menu{
     position: relative;
 }
 
@@ -162,6 +231,42 @@ header {
 
 .share-panel button:hover,
 .share-panel button:focus-visible{
+    background: rgba(255,107,157,.08);
+    color: #fff;
+}
+
+.feedback-panel{
+    position: absolute;
+    top: calc(100% + .7rem);
+    right: 0;
+    z-index: 200;
+    width: 190px;
+    padding: .65rem;
+    display: grid;
+    gap: .25rem;
+    background: #1a1f26;
+    border: 1px solid #3a4048;
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+
+.feedback-panel[hidden]{
+    display: none;
+}
+
+.feedback-panel button{
+    padding: .5rem;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: #a0a0a0;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+}
+
+.feedback-panel button:hover,
+.feedback-panel button:focus-visible{
     background: rgba(255,107,157,.08);
     color: #fff;
 }

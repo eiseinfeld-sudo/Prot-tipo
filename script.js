@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', updateCategoryOverflow);
 
 const searchBox = document.querySelector('.search-box');
 const searchStatus = document.querySelector('.search-status');
+const searchSuggestions = document.querySelector('.search-suggestions');
 const searchableSections = [...document.querySelectorAll('.content-columns .content-section')];
 const searchableCards = [...document.querySelectorAll('.content-columns .item-card')];
 
@@ -72,9 +73,63 @@ function normalizeSearchText(value) {
 return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
+function closeSearchSuggestions() {
+if (searchSuggestions) searchSuggestions.hidden = true;
+}
+
+function renderSearchSuggestions(query) {
+if (!searchSuggestions) return;
+searchSuggestions.replaceChildren();
+if (!query) {
+closeSearchSuggestions();
+return;
+}
+const matches = searchableCards.filter(card => {
+const image = card.querySelector('img');
+const searchableText = normalizeSearchText(`${card.textContent} ${image?.alt || ''} ${card.querySelector('a')?.href || ''}`);
+return searchableText.includes(query);
+}).slice(0, 5);
+
+matches.forEach(card => {
+const suggestion = document.createElement('button');
+suggestion.className = 'search-suggestion';
+suggestion.type = 'button';
+suggestion.setAttribute('role', 'option');
+const title = card.querySelector('.item-title')?.textContent.trim() || 'Site';
+const section = card.closest('.content-section')?.querySelector('.content-title')?.textContent.trim() || '';
+const image = card.querySelector('.item-image img');
+const imageElement = document.createElement('img');
+imageElement.className = 'search-suggestion-icon';
+imageElement.src = image?.src || '';
+imageElement.alt = '';
+imageElement.setAttribute('aria-hidden', 'true');
+const textContainer = document.createElement('span');
+textContainer.className = 'search-suggestion-text';
+const titleElement = document.createElement('span');
+titleElement.textContent = title;
+const sectionElement = document.createElement('small');
+sectionElement.textContent = section;
+textContainer.append(titleElement, sectionElement);
+suggestion.append(imageElement, textContainer);
+suggestion.addEventListener('click', () => {
+card.hidden = false;
+card.closest('.content-section').hidden = false;
+const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+const cardTop = card.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+window.scrollTo({ top: Math.max(0, cardTop), behavior: 'smooth' });
+searchBox.value = title;
+closeSearchSuggestions();
+});
+searchSuggestions.append(suggestion);
+});
+
+searchSuggestions.hidden = matches.length === 0;
+}
+
 if (searchBox) {
 searchBox.addEventListener('input', () => {
 const query = normalizeSearchText(searchBox.value.trim());
+renderSearchSuggestions(query);
 let visibleCards = 0;
 
 searchableCards.forEach(card => {
@@ -94,6 +149,14 @@ searchStatus.hidden = !query || visibleCards > 0;
 const text = translations?.[currentLanguage] || translations.pt;
 searchStatus.textContent = visibleCards ? `${visibleCards} ${visibleCards === 1 ? text.result : text.results}` : text.noResults;
 }
+});
+
+document.addEventListener('click', event => {
+if (!event.target.closest('.search-container')) closeSearchSuggestions();
+});
+
+searchBox.addEventListener('keydown', event => {
+if (event.key === 'Escape') closeSearchSuggestions();
 });
 }
 
@@ -238,6 +301,10 @@ document.querySelector('.share-button')?.setAttribute('title', language === 'en'
 document.querySelector('.share-button')?.setAttribute('aria-label', language === 'en' ? 'Share' : language === 'es' ? 'Compartir' : 'Compartilhar');
 document.querySelector('.share-copy')?.replaceChildren(document.createTextNode(language === 'en' ? 'Copy link' : language === 'es' ? 'Copiar enlace' : 'Copiar link'));
 document.querySelector('.share-native')?.replaceChildren(document.createTextNode(language === 'en' ? 'Share with another app' : language === 'es' ? 'Compartir con otra aplicación' : 'Compartilhar com outro aplicativo'));
+const feedbackLabels = language === 'en' ? ['Correction', 'Report item', 'Site feedback'] : language === 'es' ? ['Corrección', 'Informar elemento', 'Opinión sobre el sitio'] : ['Correção', 'Reportar item', 'Opinião sobre o site'];
+document.querySelectorAll('.feedback-panel button').forEach((button, index) => { button.textContent = feedbackLabels[index]; });
+document.querySelector('.feedback-button')?.setAttribute('title', language === 'en' ? 'Send feedback' : language === 'es' ? 'Enviar comentarios' : 'Enviar feedback');
+document.querySelector('.feedback-button')?.setAttribute('aria-label', language === 'en' ? 'Send feedback' : language === 'es' ? 'Enviar comentarios' : 'Enviar feedback');
 translateStaticText(language);
 translateCommentForms(language);
 translateAboutPage(language);
@@ -251,11 +318,31 @@ const shareButton = document.querySelector('.share-button');
 const sharePanel = document.querySelector('.share-panel');
 const shareCopy = document.querySelector('.share-copy');
 const shareNative = document.querySelector('.share-native');
+const feedbackButton = document.querySelector('.feedback-button');
+const feedbackPanel = document.querySelector('.feedback-panel');
 
 function closeSharePanel() {
 if (!shareButton || !sharePanel) return;
 shareButton.setAttribute('aria-expanded', 'false');
 sharePanel.hidden = true;
+}
+
+function closeFeedbackPanel() {
+if (!feedbackButton || !feedbackPanel) return;
+feedbackButton.setAttribute('aria-expanded', 'false');
+feedbackPanel.hidden = true;
+}
+
+if (feedbackButton && feedbackPanel) {
+feedbackButton.addEventListener('click', () => {
+const expanded = feedbackButton.getAttribute('aria-expanded') === 'true';
+feedbackButton.setAttribute('aria-expanded', !expanded);
+feedbackPanel.hidden = expanded;
+});
+
+document.addEventListener('click', event => {
+if (!event.target.closest('.feedback-menu')) closeFeedbackPanel();
+});
 }
 
 async function copyCurrentLink() {
