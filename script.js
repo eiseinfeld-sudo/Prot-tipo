@@ -1,6 +1,42 @@
 document.querySelectorAll('.category-link').forEach(link => {
-link.addEventListener('click', e => { e.preventDefault(); document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active')); link.classList.add('active'); });
+link.addEventListener('click', e => {
+e.preventDefault();
+document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+link.classList.add('active');
+const category = normalizeSearchText(link.textContent.trim());
+const targetMap = {
+anime: '.content-section:nth-of-type(1)',
+ manga: '.content-section:nth-of-type(2)',
+ 'light novel': '.content-section:nth-of-type(4)',
+ drama: '.content-section:nth-of-type(3)',
+};
+const target = document.querySelector(targetMap[category] || '.media-section');
+if (target) {
+const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+}
+});
         });
+
+document.querySelectorAll('.sidebar-section:nth-of-type(2) a').forEach(link => {
+link.addEventListener('click', event => {
+event.preventDefault();
+const category = normalizeSearchText(link.textContent.trim());
+const targetMap = {
+anime: '.content-section:nth-of-type(1)',
+manga: '.content-section:nth-of-type(2)',
+'light novel': '.content-section:nth-of-type(4)',
+drama: '.content-section:nth-of-type(3)',
+};
+const target = document.querySelector(targetMap[category] || '.media-section');
+if (target) {
+const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+}
+});
+});
 
 const categoriesMenu = document.querySelector('.categories-menu');
 const categoriesToggle = document.querySelector('.categories-toggle');
