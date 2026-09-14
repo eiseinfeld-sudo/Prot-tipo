@@ -265,6 +265,12 @@ header {
     text-align: left;
 }
 
+.feedback-panel button a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
 .feedback-panel button:hover,
 .feedback-panel button:focus-visible{
     background: rgba(255,107,157,.08);
