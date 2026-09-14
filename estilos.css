@@ -248,7 +248,8 @@ header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
     padding: .75rem 1rem;
     background: #252b33;
     border: 0;
@@ -268,11 +269,14 @@ header {
 .categories-toggle span:last-child{
     font-size: 1.2rem;
     transition: transform .2s ease;
+    position: absolute;
+    right: 1rem;
 }
 
 .categories-list{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
     gap: .6rem;
     max-height: 7.5rem;
